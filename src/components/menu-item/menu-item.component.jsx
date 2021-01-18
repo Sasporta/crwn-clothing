@@ -1,10 +1,11 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import styled from "styled-components";
 
-const MenuItem = ({ title, imageUrl, size }) => {
+const MenuItem = ({ title, imageUrl, size, linkUrl, history, match }) => {
 
     return (
-        <S_menuItem className={`${size} menu-item`}>
+        <S_menuItem className={`${size} menu-item`} onClick={() => history.push(`${match.url}${linkUrl}`)}>
             <BackgroundImage className='background-image' imageUrl={imageUrl}/>
             <S_content className='content'>
                 <S_title className='title'>{title}</S_title>
@@ -14,7 +15,7 @@ const MenuItem = ({ title, imageUrl, size }) => {
     )
 };
 
-export default MenuItem;
+export default withRouter(MenuItem);
 
 const S_menuItem = styled.div`
   display: flex;

@@ -1,45 +1,16 @@
 import React, { useState } from 'react';
-import styled from "styled-components";
 import MenuItem from "../menu-item/menu-item.component";
+import DIRECTORY_DATA from './directory.data'
+import styled from "styled-components";
 
 const Directory = () => {
 
-    const [section, set_section] = useState(
-        [
-            {
-                title: 'HATS',
-                imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
-                id: 1
-            },
-            {
-                title: 'JACKETS',
-                imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
-                id: 2
-            },
-            {
-                title: 'SNEAKERS',
-                imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
-                id: 3
-            },
-            {
-                title: 'WOMENS',
-                imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
-                size: 'large',
-                id: 4
-            },
-            {
-                title: 'MENS',
-                imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
-                size: 'large',
-                id: 5
-            }
-        ]
-    );
+    const [section, set_section] = useState(DIRECTORY_DATA);
 
     return (
         <S_directoryMenu className='directory-menu'>
-            {section.map(({title, imageUrl, size, id}) => 
-            <MenuItem key={id} title={title} imageUrl={imageUrl} size={size} />)}
+            {section.map(({id, ...otherSectionProps }) => 
+            <MenuItem key={id} {...otherSectionProps} />)}
         </S_directoryMenu>
     )
 };
