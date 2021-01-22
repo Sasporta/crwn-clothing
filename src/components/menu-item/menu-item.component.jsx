@@ -6,7 +6,7 @@ const MenuItem = ({ title, imageUrl, size, linkUrl, history, match }) => {
 
     return (
         <S_menuItem className={`${size} menu-item`} onClick={() => history.push(`${match.url}${linkUrl}`)}>
-            <BackgroundImage className='background-image' imageUrl={imageUrl}/>
+            <S_backgroundImage className='background-image' imageUrl={imageUrl}/>
             <S_content className='content'>
                 <S_title className='title'>{title}</S_title>
                 <S_subtitle className='subtitle'>SHOP NOW</S_subtitle>
@@ -55,7 +55,7 @@ const S_menuItem = styled.div`
   }
 `;
 
-const BackgroundImage = styled.div`
+const S_backgroundImage = styled.div`
   height: 100%;
   width: 100%;
   background-size: cover;
