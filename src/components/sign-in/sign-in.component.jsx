@@ -22,8 +22,8 @@ const SignIn = () => {
 
     return (
         <S_signIN className='sign-in'>
-            <h2>I already have an account</h2>
-            <S_title className='title'>Sign in with your email and password</S_title>
+            <S_title>I already have an account</S_title>
+            <span className='title'>Sign in with your email and password</span>
             <form onSubmit={handleSubmit}>
                 <FormInput 
                 name='email' 
@@ -56,9 +56,9 @@ const S_signIN = styled.div`
   flex-direction: column;
 `;
 
-const S_title = styled.span`;
+const S_title = styled.h2`;
   margin: 10px 0;
-  `;
+`;
 
   const S_buttons = styled.div`;
   display: flex;
