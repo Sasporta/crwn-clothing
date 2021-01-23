@@ -11,6 +11,10 @@ const CreateGlobalStyle = createGlobalStyle`
       text-decoration: none;
       color: black;
   }
+
+  * {
+    box-sizing: border-box;
+  }
 `;
 
 export default CreateGlobalStyle;

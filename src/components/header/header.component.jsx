@@ -1,20 +1,25 @@
 import React from 'react';
+import { ReactComponent as Logo } from '../../assets/crown.svg';
 import { Link } from 'react-router-dom';
+import { auth } from '../../firebase/firebase.utils';
 import styled from 'styled-components';
-import { ReactComponent as Logo } from '../../assets/crown.svg'
-const Header = () => {
+const Header = ({ currentUser }) => {
 
-    return (
-        <S_header className='header'>
-            <S_logoContainer className='logo-container' to='/'>
-            <Logo className='logo' />
-            </S_logoContainer>
-            <S_options className='options'>
-                <S_option className='option' to='/shop'>SHOP</S_option>
-                <S_option className='option' to='/shop'>CONTACT</S_option>
-            </S_options>
-        </S_header>
-    )
+  return (
+    <S_header className='header'>
+      <S_logoContainerLink className='logo-container' to='/'>
+        <Logo className='logo' />
+      </S_logoContainerLink>
+      <S_options className='options'>
+        <S_optionLink className='option' to='/shop'>SHOP</S_optionLink>
+        <S_optionLink className='option' to='/shop'>CONTACT</S_optionLink>
+        {currentUser ?
+          <S_option className='option' onClick={() => auth.signOut()}>SIGN OUT</S_option> :
+          <Link className='option' to='/signin'>SIGN IN</Link>
+        }
+      </S_options>
+    </S_header>
+  )
 };
 
 export default Header;
@@ -27,7 +32,7 @@ const S_header = styled.div`
   margin-bottom: 25px;
 `;
 
-const S_logoContainer = styled(Link)`
+const S_logoContainerLink = styled(Link)`
   height: 100%;
   width: 70px;
   padding: 25px;
@@ -41,6 +46,12 @@ const S_options = styled.div`
   justify-content: flex-end;
 `;
 
-const S_option = styled(Link)`
+const S_optionLink = styled(Link)`
   padding: 10px 15px;
+  cursor: pointer;
+`;
+
+const S_option = styled.div`
+  padding: 10px 15px;
+  cursor: pointer;
 `;
