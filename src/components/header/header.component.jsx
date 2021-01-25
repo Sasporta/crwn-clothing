@@ -3,11 +3,15 @@ import { ReactComponent as Logo } from '../../assets/crown.svg';
 import { Link } from 'react-router-dom';
 import { auth } from '../../firebase/firebase.utils';
 import styled from 'styled-components';
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
+import CartIcon from '../cart-icon/cart-icon.component';
+import CartDropdown from '../cart-dropdown/cart-dropdown.component';
+
 
 const Header = () => {
 
   const { currentUser } = useSelector(state => state.user);
+  const { hidden } = useSelector(state => state.cart);
 
   return (
     <S_header className='header'>
@@ -21,7 +25,9 @@ const Header = () => {
           <S_option className='option' onClick={() => auth.signOut()}>SIGN OUT</S_option> :
           <S_optionLink className='option' to='/signin'>SIGN IN</S_optionLink>
         }
+        <CartIcon />
       </S_options>
+      {hidden ? null : <CartDropdown />}
     </S_header>
   )
 };
