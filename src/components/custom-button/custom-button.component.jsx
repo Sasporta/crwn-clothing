@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from "styled-components";
 
-const CustomButton = ({ children, isGoogleSignIn, ...otherProps }) => {
+const CustomButton = ({ children, isGoogleSignIn, inverted, ...otherProps }) => {
 
     return (
-        <S_customButton className={`${isGoogleSignIn ? 'google-sign-in' : ''} custom-button`} {...otherProps}>
+        <S_customButton className={`${inverted ? 'inverted' : ''} ${isGoogleSignIn ? 'google-sign-in' : ''} custom-button`} {...otherProps}>
             {children}
         </S_customButton>
     )
@@ -27,6 +27,20 @@ const S_customButton = styled.button`
   font-weight: bolder;
   border: none;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+
+    &.inverted{
+        background-color: white;
+        color: black;
+        border: 1px solid black;
+
+        &:hover{
+            background-color: black;
+            color: white;
+            border: none;
+        }
+    }
 
     &:hover{
         background-color: white;
