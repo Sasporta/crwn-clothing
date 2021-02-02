@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CartItem = ({ item: { imageUrl,name, price, quantity } }) => {
+const CartItem = ({ item: { imageUrl, name, price, quantity } }) => {
 
     return (
         <S_cartItem className='cart-item'>

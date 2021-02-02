@@ -8,6 +8,7 @@ import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { useDispatch } from 'react-redux';
 import { setCurrentUser } from './redux/user/user.actions';
 import { useSelector } from "react-redux";
+import CheckoutPage from './pages/checkout/checkout.component';
 
 
 const App = () => {
@@ -37,10 +38,11 @@ const App = () => {
       <Switch>
         <Route exact path='/' component={HomePage} />
         <Route path='/shop' component={ShopPage} />
+        <Route exact path='/checkout' component={CheckoutPage} />
         <Route exact path='/signin' render={() => currentUser ? <Redirect to='/' /> : <SignInAndSignUpPage />} />
       </Switch>
     </>
   );
-}
+};
 
 export default App;

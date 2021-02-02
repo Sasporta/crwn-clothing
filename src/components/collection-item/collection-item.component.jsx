@@ -19,7 +19,7 @@ const CollectionItem = ({ item }) => {
       <CustomButton onClick={() => dispatch(addItem(item))} inverted>Add to cart</CustomButton>
     </S_collectionItem>
   )
-}
+};
 
 export default CollectionItem;
 
