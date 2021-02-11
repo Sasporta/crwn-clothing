@@ -1,7 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import { removeItem, addItem, clearItem } from '../../redux/cart/cart.action';
+import { useDispatch } from 'react-redux';
 
-const CheckoutItem = ({ cartItem: { name, imageUrl, price, quantity } }) => {
+const CheckoutItem = ({ cartItem }) => {
+
+  const dispatch = useDispatch();
+  const { name, imageUrl, price, quantity } = cartItem;
 
     return (
         <S_checkoutItem className='checkout-item'>
@@ -9,9 +14,13 @@ const CheckoutItem = ({ cartItem: { name, imageUrl, price, quantity } }) => {
                 <S_img src={imageUrl} alt='item' />
             </S_imageContainer>
             <S_details className='name'>{name}</S_details>
-            <S_quantityDetails className='quantity'>{quantity}</S_quantityDetails>
+            <S_quantityDetails className='quantity'>
+              <S_arrow className='arrow' onClick={() => dispatch(removeItem(cartItem))}>&#10094;</S_arrow>
+              <S_value className='value'>{quantity}</S_value>
+              <S_arrow className='arrow' onClick={() => dispatch(addItem(cartItem))}>&#10095;</S_arrow>   
+              </S_quantityDetails>
             <S_details className='price'>{price}</S_details>
-            <S_removeButton className='remove'>&#10005;</S_removeButton>
+            <S_removeButton className='remove' onClick={() => dispatch(clearItem(cartItem))}>&#10005;</S_removeButton>
         </S_checkoutItem>
     );
 };
@@ -43,7 +52,15 @@ const S_details = styled.span`
 `;
 
 const S_quantityDetails = styled(S_details)`
-  padding-left: 20px;
+  display: flex;
+`;
+
+const S_arrow = styled.div`
+  cursor: pointer;
+`;
+
+const S_value = styled.span`
+  margin: 0 10px;
 `;
 
 const S_removeButton = styled.div`
