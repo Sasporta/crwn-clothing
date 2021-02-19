@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
-
+import StripeCheckoutButton from '../../components/stripe-button/stripe-button.component';
 
 const CheckoutPage = () => {
 
@@ -33,6 +33,12 @@ const CheckoutPage = () => {
             <S_total className='total'>
                 <span>TOTAL: ${total}</span>
             </S_total>
+            <S_testWarning className='test-warning'>
+                *Please use the following test credit card for payment*
+                <br/>
+                4242 4242 4242 4242 - Exp: 01/22 CVV: 123
+            </S_testWarning>
+            <StripeCheckoutButton price={total} />
         </S_checkoutPage>
     )
 };
@@ -46,6 +52,11 @@ const S_checkoutPage = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 50px auto 0;
+
+  & button {
+      margin-left: auto;
+      margin-top: 50px;
+  }
 `;
 
 const S_checkoutHeader = styled.div`
@@ -70,3 +81,14 @@ const S_total = styled.div`
   margin-left: auto;
   font-size: 36px;
 `;
+
+
+
+const S_testWarning = styled.div`
+  text-align: center;
+  margin-top: 40px;
+  font-size: 24px;
+  color: red
+`;
+
+
