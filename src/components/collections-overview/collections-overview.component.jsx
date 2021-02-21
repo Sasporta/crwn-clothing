@@ -6,20 +6,21 @@ import styled from 'styled-components';
 const CollectionsOverview = () => {
 
     const { collections } = useSelector(state => state.shop);
-    const selectCollectionsForPreview = Object.keys(collections).map(key => collections[key]);
+    const selectCollectionsForPreview = () =>  
+    collections ? Object.keys(collections).map(key => collections[key]) : [];
 
     return (
-        <S_collectionsOverview className='collections-overview'>
-            {selectCollectionsForPreview.map(({ id, ...otherCollectionProps }) =>
+        <CollectionsOverviewContainer className='collections-overview'>
+            {selectCollectionsForPreview().map(({ id, ...otherCollectionProps }) =>
                 <CollectionPreview key={id} {...otherCollectionProps} />
             )}
-        </S_collectionsOverview>
+        </CollectionsOverviewContainer>
     );
 };
 
 export default CollectionsOverview;
 
-const S_collectionsOverview = styled.div`
+const CollectionsOverviewContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;

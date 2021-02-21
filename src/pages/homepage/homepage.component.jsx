@@ -5,19 +5,18 @@ import Directory from '../../components/directory/directory.component'
 const HomePage = () => {
 
   return (
-    <S_homepage className='homepage'>
+    <HomePageContainer className='homepage'>
       <Directory />
-    </S_homepage>
+    </HomePageContainer>
   )
 };
 
 export default HomePage;
 
-const S_homepage = styled.div`
+const HomePageContainer = styled.div`
   display: flex;
-  align-items: center;
   flex-direction: column;
-  padding: 20px 80px;
+  align-items: center;
 `;
 
 

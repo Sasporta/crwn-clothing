@@ -31,7 +31,7 @@ const SignUp = () => {
         } catch (error) {
             console.log(error);
         }
-    }
+    };
 
     const handleChange = e => {
         const { value, name } = e.target;
@@ -39,12 +39,11 @@ const SignUp = () => {
         else if (name === 'email') { set_email(value) }
         else if (name === 'password') { set_password(value) }
         else if (name === 'confirmPassword') { set_confirmPassword(value) }
-
-    }
+    };
 
     return (
-        <S_signUp className='sign-up'>
-            <S_title className='title'>I do not have a account</S_title>
+        <SignUpContainer className='sign-up'>
+            <SignUpTitleContainer className='title'>I do not have a account</SignUpTitleContainer>
             <span>Sign up with your email and password</span>
             <form className='sign-up-form' onSubmit={handleSubmit}>
                 <FormInput
@@ -81,18 +80,18 @@ const SignUp = () => {
                 />
                 <CustomButton type='submit'>SIGN UP</CustomButton>
             </form>
-        </S_signUp>
+        </SignUpContainer>
     )
 };
 
 export default SignUp;
 
-const S_signUp = styled.div`
-  width: 380px;
+const SignUpContainer = styled.div`
   display: flex;
   flex-direction: column;
+  width: 380px;
 `;
 
-const S_title = styled.h2`;
+const SignUpTitleContainer = styled.h2`;
   margin: 10px 0;
 `;

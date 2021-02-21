@@ -1,0 +1,45 @@
+index {
+    App {
+        Header {
+            CartIcon
+            CartDropdown {
+                ...CartItem
+                CustomButton
+            }
+        }
+        Homepage {
+            Directory {
+                ...MenuItem
+            }
+        }
+        ShopPage {
+            CollectionsOverview {
+                ...CollectionPreview {
+                    ...CollectionItem{
+                        CustomButton
+                    }
+                }
+            }
+            CollectionPage {
+                ...CollectionItem {
+                    CustomButton
+                }
+            }
+        }
+        CheckoutPage {
+            ...CheckoutItem
+            StripeCheckoutButton
+        }
+        SignInAndSignUpPage {
+            SignIn {
+                FormInput
+                CustomButton
+            }
+            SignUp {
+                FormInput
+                CustomButton
+            }
+        }
+    }
+}
+

@@ -8,18 +8,18 @@ const Directory = () => {
     const { sections } = useSelector(state => state.directory);
 
     return (
-        <S_directoryMenu className='directory-menu'>
+        <DirectoryMenuContainer className='directory-menu'>
             {sections.map(({id, ...otherSectionProps }) => 
             <MenuItem key={id} {...otherSectionProps} />)}
-        </S_directoryMenu>
+        </DirectoryMenuContainer>
     )
 };
 
 export default Directory;
 
-const S_directoryMenu = styled.div`
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+const DirectoryMenuContainer = styled.div`
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 `;

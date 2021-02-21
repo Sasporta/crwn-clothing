@@ -9,25 +9,25 @@ const CheckoutItem = ({ cartItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;
 
     return (
-        <S_checkoutItem className='checkout-item'>
-            <S_imageContainer className='image-container'>
-                <S_img src={imageUrl} alt='item' />
-            </S_imageContainer>
-            <S_details className='name'>{name}</S_details>
-            <S_quantityDetails className='quantity'>
-              <S_arrow className='arrow' onClick={() => dispatch(removeItem(cartItem))}>&#10094;</S_arrow>
-              <S_value className='value'>{quantity}</S_value>
-              <S_arrow className='arrow' onClick={() => dispatch(addItem(cartItem))}>&#10095;</S_arrow>   
-              </S_quantityDetails>
-            <S_details className='price'>{price}</S_details>
-            <S_removeButton className='remove' onClick={() => dispatch(clearItem(cartItem))}>&#10005;</S_removeButton>
-        </S_checkoutItem>
+        <CheckoutItemContainer className='checkout-item'>
+            <ImageContainer className='image-container'>
+                <Img src={imageUrl} alt='item' />
+            </ImageContainer>
+            <TextContainer className='name'>{name}</TextContainer>
+            <QuantityContainer className='quantity'>
+              <Arrow className='arrow' onClick={() => dispatch(removeItem(cartItem))}>&#10094;</Arrow>
+              <ValueContainer className='value'>{quantity}</ValueContainer>
+              <Arrow className='arrow' onClick={() => dispatch(addItem(cartItem))}>&#10095;</Arrow>   
+              </QuantityContainer>
+            <TextContainer className='price'>{price}</TextContainer>
+            <RemoveButtonContainer className='remove' onClick={() => dispatch(clearItem(cartItem))}>&#10005;</RemoveButtonContainer>
+        </CheckoutItemContainer>
     );
 };
 
 export default CheckoutItem;
 
-const S_checkoutItem = styled.div`
+const CheckoutItemContainer = styled.div`
   width: 100%;
   display: flex;
   min-height: 100px;
@@ -37,33 +37,33 @@ const S_checkoutItem = styled.div`
   align-items: center
 `;
 
-const S_imageContainer = styled.div`
+const ImageContainer = styled.div`
   width: 23%;
   padding-right: 15px;
 `;
 
-const S_img = styled.img`
+const Img = styled.img`
   width: 100%;
   height: 100%;
 `;
 
-const S_details = styled.span`
+const TextContainer = styled.span`
   width: 23%;
 `;
 
-const S_quantityDetails = styled(S_details)`
+const QuantityContainer = styled(TextContainer)`
   display: flex;
 `;
 
-const S_arrow = styled.div`
+const Arrow = styled.div`
   cursor: pointer;
 `;
 
-const S_value = styled.span`
+const ValueContainer = styled.span`
   margin: 0 10px;
 `;
 
-const S_removeButton = styled.div`
+const RemoveButtonContainer = styled.div`
   padding-left: 12px;
   cursor: pointer;
 `;

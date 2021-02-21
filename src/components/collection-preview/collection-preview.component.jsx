@@ -1,33 +1,41 @@
 import React from 'react';
 import styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
 import CollectionItem from '../../components/collection-item/collection-item.component';
 
-const CollectionPreview = ({ title, items }) => {
+const CollectionPreview = ({ title, items, history, match, routeName }) => {
 
     return (
-        <S_collectionPreview className='collection-preview'>
-            <S_title className='title'>{title.toUpperCase()}</S_title>
-            <S_preview className='preview'>
+        <CollectionPreviewContainer className='collection-preview'>
+            <TitleContainer className='title' onClick={() => history.push(`${match.path}/${routeName}`)}>{title}</TitleContainer>
+            <PreviewContainer className='preview'>
                 {items.filter((v, i) => i < 4).map(item => <CollectionItem key={item.id} item={item} />)}
-            </S_preview>
-        </S_collectionPreview>
+            </PreviewContainer>
+        </CollectionPreviewContainer>
     )
 };
 
-export default CollectionPreview;
+export default withRouter(CollectionPreview);
 
-const S_collectionPreview = styled.div`
+const CollectionPreviewContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
 `;
 
-const S_title = styled.h1`
-  font-size: 28px
+const TitleContainer = styled.h1`
+  font-size: 28px;
   margin-bottom: 25px;
+  width: min-content;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &:hover {
+    color: grey;
+  }
 `;
 
-const S_preview = styled.div`
+const PreviewContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `;

@@ -6,16 +6,16 @@ import SignUp from '../../components/sign-up/sign-up.component';
 const SignInAndSignUpPage = () => {
 
     return (
-        <S_signInAndSignUp className='sign-in-and-sign-up'>
+        <SignInAndSignUpContainer className='sign-in-and-sign-up'>
             <SignIn />
             <SignUp />
-        </S_signInAndSignUp>
+        </SignInAndSignUpContainer>
     )
 };
 
 export default SignInAndSignUpPage;
 
-const S_signInAndSignUp = styled.div`
+const SignInAndSignUpContainer = styled.div`
   width: 850px;
   display: flex;
   justify-content: space-between;

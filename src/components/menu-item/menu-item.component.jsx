@@ -5,84 +5,81 @@ import styled from "styled-components";
 const MenuItem = ({ title, imageUrl, size, linkUrl, history, match }) => {
 
     return (
-        <S_menuItem className={`${size} menu-item`} onClick={() => history.push(`${match.url}${linkUrl}`)}>
-            <S_backgroundImage className='background-image' imageUrl={imageUrl}/>
-            <S_content className='content'>
-                <S_title className='title'>{title}</S_title>
-                <S_subtitle className='subtitle'>SHOP NOW</S_subtitle>
-            </S_content>
-        </S_menuItem>
-    )
+        <MenuItemContainer className='menu-item' size={size} onClick={() => history.push(`${match.url}${linkUrl}`)}>
+            <BackgroundImageContainer className='background-image' imageUrl={imageUrl}/>
+            <ContentContainer className='content'>
+                <TitleContainer className='title'>{title}</TitleContainer>
+                <SubtitleContainer className='subtitle'>SHOP NOW</SubtitleContainer>
+            </ContentContainer>
+        </MenuItemContainer>
+    );
 };
 
 export default withRouter(MenuItem);
 
-const S_menuItem = styled.div`
+const MenuItemContainer = styled.div`
+  height: ${({ size }) => size ? '380px' : '240px'};
+  min-width: 30%;
+  overflow: hidden;
+  flex: 1 1 auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1 1 auto;
-  height: 240px;
-  min-width: 30%;
   border: 1px solid black;
   margin: 0 7.5px 15px;
-  overflow: hidden;
-
-  &.large{
-    height: 360px;
-  }
-
-  &:first-child{
-    margin-right: 7.5px;
-  }
-
-  &:last-child{
-    margin-left: 7.5px;
-  }
 
   &:hover {
     cursor: pointer;
 
     & .background-image {
-        border: red;
         transform: scale(1.1);
-        transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95)
+        transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
     }
 
     & .content {
         opacity: 0.9;
     }
   }
+
+  &:first-child {
+    margin-right: 7.5px;
+  }
+
+  &:last-child {
+    margin-left: 7.5px;
+  }
 `;
 
-const S_backgroundImage = styled.div`
-  height: 100%;
+const BackgroundImageContainer = styled.div`
   width: 100%;
+  height: 100%;
   background-size: cover;
   background-position: center;
   background-image: url(${({imageUrl}) => imageUrl});
 `;
 
 
-const S_content = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+const ContentContainer = styled.div`
   height: 90px;
+  padding: 0 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
   background-color: white;
   opacity: 0.7;
-  padding: 0 25px;
   position: absolute;
 `;
 
-const S_title = styled.div`
-  font-size: 22px;
+const TitleContainer = styled.span`
   font-weight: bold;
-  color: #4a4a4a;
   margin-bottom: 6px;
+  font-size: 22px;
+  color: #4a4a4a;
 `;
 
-const S_subtitle = styled.div`
-  font-size:16px
+const SubtitleContainer = styled.span`
   font-weight: lighter;
+  font-size: 16px;
 `;

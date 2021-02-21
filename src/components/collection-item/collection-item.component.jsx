@@ -10,20 +10,20 @@ const CollectionItem = ({ item }) => {
   const { name, price, imageUrl } = item;
 
   return (
-    <S_collectionItem className='collection-item'>
-      <S_image className='image' imageUrl={imageUrl} />
-      <S_collectionFooter className='collction-footer'>
-        <S_name className='name'>{name}</S_name>
-        <S_price className='price'>{price}</S_price>
-      </S_collectionFooter>
-      <CustomButton onClick={() => dispatch(addItem(item))} inverted>Add to cart</CustomButton>
-    </S_collectionItem>
+    <CollectionItemContainer className='collection-item'>
+      <BackgroundImageContainer className='image' imageUrl={imageUrl} />
+      <CollectionFooterContainer className='collction-footer'>
+        <NameContainer className='name'>{name}</NameContainer>
+        <PriceContainer className='price'>{price}</PriceContainer>
+      </CollectionFooterContainer>
+      <AddButton onClick={() => dispatch(addItem(item))} inverted>Add to cart</AddButton>
+    </CollectionItemContainer>
   )
 };
 
 export default CollectionItem;
 
-const S_collectionItem = styled.div`
+const CollectionItemContainer = styled.div`
   width: 22vw;
   display: flex;
   flex-direction: column;
@@ -31,27 +31,27 @@ const S_collectionItem = styled.div`
   align-items: center;
   position: relative;
 
-    .custom-button{
-      width: 80%;
-      opacity: 0.7;
-      position: absolute;
-      top: 255px;
-      display:none;
-    }
-
-    &:hover{
-      .image{
+    &:hover {
+      .image {
         opacity:0.8
       }
 
-      .custom-button{
+      button {
         opacity: 0.85;
         display: flex;
       }
     }
 `;
 
-const S_image = styled.div`
+const AddButton = styled(CustomButton)`
+  width: 80%;
+  opacity: 0.7;
+  position: absolute;
+  top: 255px;
+  display: none;
+`;
+
+const BackgroundImageContainer = styled.div`
   width: 100%;
   height: 95%;
   background-size: cover;
@@ -60,19 +60,20 @@ const S_image = styled.div`
   background-image: url(${({ imageUrl }) => imageUrl});
 `;
 
-const S_collectionFooter = styled.div`
+const CollectionFooterContainer = styled.div`
   width: 100%;
+  height: 5%;
   display: flex;
   justify-content: space-between;
-  height: 5%;
   font-size: 18px;
 `;
 
-const S_name = styled.span`
+const NameContainer = styled.span`
   width: 90%;
   margin-bottom: 15px;
 `;
 
-const S_price = styled.span`
+const PriceContainer = styled.span`
   width: 10%;
+  text-align: right;
 `;

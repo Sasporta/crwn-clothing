@@ -14,27 +14,27 @@ const Header = () => {
   const { hidden } = useSelector(state => state.cart);
 
   return (
-    <S_header className='header'>
-      <S_logoContainerLink className='logo-container' to='/'>
+    <HeaderContainer className='header'>
+      <LogoContainer className='logo-container' to='/'>
         <Logo className='logo' />
-      </S_logoContainerLink>
-      <S_options className='options'>
-        <S_optionLink className='option' to='/shop'>SHOP</S_optionLink>
-        <S_optionLink className='option' to='/shop'>CONTACT</S_optionLink>
+      </LogoContainer>
+      <OptionsContainer className='options'>
+        <OptionLink className='option' to='/shop'>SHOP</OptionLink>
+        <OptionLink className='option' to='/shop'>CONTACT</OptionLink> 
         {currentUser ?
-          <S_option className='option' onClick={() => auth.signOut()}>SIGN OUT</S_option> :
-          <S_optionLink className='option' to='/signin'>SIGN IN</S_optionLink>
+          <OptionLink as='div' className='option' onClick={() => auth.signOut()}>SIGN OUT</OptionLink> :
+          <OptionLink className='option' to='/signin'>SIGN IN</OptionLink>
         }
         <CartIcon />
-      </S_options>
+      </OptionsContainer>
       {hidden ? null : <CartDropdown />}
-    </S_header>
+    </HeaderContainer>
   )
 };
 
 export default Header;
 
-const S_header = styled.div`
+const HeaderContainer = styled.div`
   height: 70px;
   width: 100%;
   display: flex;
@@ -42,26 +42,21 @@ const S_header = styled.div`
   margin-bottom: 25px;
 `;
 
-const S_logoContainerLink = styled(Link)`
+const LogoContainer = styled(Link)`
   height: 100%;
   width: 70px;
   padding: 25px;
 `;
 
-const S_options = styled.div`
-  height: 100%;
+const OptionsContainer = styled.div`
   width: 50%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
 `;
 
-const S_optionLink = styled(Link)`
-  padding: 10px 15px;
-  cursor: pointer;
-`;
-
-const S_option = styled.div`
+const OptionLink = styled(Link)`
   padding: 10px 15px;
   cursor: pointer;
 `;

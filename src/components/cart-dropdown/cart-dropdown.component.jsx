@@ -14,24 +14,24 @@ const CartDropdown = ({ history }) => {
   const dispatch = useDispatch();
   
   return (
-    <S_cartDropdown className='cart-dropdown'>
-      <S_cartItem className='cart-items' >
+    <CartDropdownContainer className='cart-dropdown'>
+      <CartItemContainer className='cart-items' >
         {cartItems.length
           ? cartItems.map(cartItem => <CartItem key={cartItem.id} item={cartItem} />)
-          : <S_emptyMessage className='empty-message'>Your cart is empty</S_emptyMessage>
+          : <EmptyMessageContainer className='empty-message'>Your cart is empty</EmptyMessageContainer>
         }
-      </S_cartItem>
-      <S_CustomButton onClick={() => {
+      </CartItemContainer>
+      <CustomButtonContainer onClick={() => {
         history.push('/checkout');
         dispatch(toggleCartHidden());
-        }}>GO TO CHECKOUT</S_CustomButton>
-    </S_cartDropdown>
+        }}>GO TO CHECKOUT</CustomButtonContainer>
+    </CartDropdownContainer>
   )
 };
 
 export default withRouter(CartDropdown);
 
-const S_cartDropdown = styled.div`
+const CartDropdownContainer = styled.div`
   position: absolute;
   width: 240px;
   height: 340px;
@@ -42,21 +42,21 @@ const S_cartDropdown = styled.div`
   background-color: white;
   top: 90px;
   right: 40px;
-  z-index: 5;
+  z-index: 1;
 `;
 
-const S_cartItem = styled.div`
+const CartItemContainer = styled.div`
   height: 240px;
   display: flex;
   flex-direction: column;
   overflow: auto;
 `;
 
-const S_emptyMessage = styled.span`
+const EmptyMessageContainer = styled.span`
   font-size: 18px;
   margin: 50px auto;
 `;
 
-const S_CustomButton = styled(CustomButton)`
+const CustomButtonContainer = styled(CustomButton)`
   margin-top: auto;
 `;

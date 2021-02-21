@@ -6,32 +6,39 @@ import styled from 'styled-components';
 const CollectionPage = ({ match }) => {
 
     const { collections } = useSelector(state => state.shop);
-    const selectCollections = collections[match.params.collectionId]
-    const { title, items } = selectCollections;
 
-    return (
-        <S_collectionPage className='collection-page'>
-            <S_title className='title'>{title}</S_title>
-            <S_items className='items'>
-                {items.map(item => <CollectionItem key={item.id} item={item} />)}
-            </S_items>
-        </S_collectionPage>
-    );
+    let titleValue = '';
+    let itemsValue = [];
+    
+    if(collections) {
+      const { title, items } = collections[match.params.collectionId]
+      titleValue = title;
+      itemsValue = items;
+    };
+
+    return collections ? ( 
+        <CollectionPageContainer className='collection-page'>
+            <CollectionTitleContainer className='title'>{titleValue}</CollectionTitleContainer>
+            <CollectionItemsContainer className='items'>
+                {itemsValue.map(item => <CollectionItem key={item.id} item={item} />)}
+            </CollectionItemsContainer>
+        </CollectionPageContainer> 
+    ) : null;
 };
 
 export default CollectionPage;
 
-const S_collectionPage = styled.div`
+const CollectionPageContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-const S_title = styled.h2`
+const CollectionTitleContainer = styled.h2`
   font-size: 38px;
   margin: 0 auto 30px;
 `;
 
-const S_items = styled.div`
+const CollectionItemsContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 10px;

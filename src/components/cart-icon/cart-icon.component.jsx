@@ -12,16 +12,16 @@ const CartIcon = () => {
   const itemCount = cartItems.reduce((accumalatedQuantity, cartItem) => accumalatedQuantity + cartItem.quantity, 0);
 
     return (
-        <S_cartIcon className='cart-icon' onClick={() => dispatch(toggleCartHidden())}>
-            <S_shoppingIcon className='shopping-icon' />
-            <S_itemCount className='item-count'>{itemCount}</S_itemCount>
-        </S_cartIcon>
+        <CartIconContainer className='cart-icon' onClick={() => dispatch(toggleCartHidden())}>
+            <ShoppingIconContainer className='shopping-icon' />
+            <ItemCountContainer className='item-count'>{itemCount}</ItemCountContainer>
+        </CartIconContainer>
     )
 };
 
 export default CartIcon;
 
-const S_cartIcon = styled.div`
+const CartIconContainer = styled.div`
   width: 45px;
   height: 45px;
   position: relative;
@@ -31,12 +31,12 @@ const S_cartIcon = styled.div`
   cursor: pointer;
 `;
 
-const S_shoppingIcon = styled(ShoppingIcon)`
+const ShoppingIconContainer = styled(ShoppingIcon)`
   width: 24px;
   height: 24px;
 `;
 
-const S_itemCount = styled.span`
+const ItemCountContainer = styled.span`
   position: absolute;
   font-size: 10px;
   font-weight: bold;

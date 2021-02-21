@@ -27,8 +27,8 @@ const SignIn = () => {
     }
 
     return (
-        <S_signIN className='sign-in'>
-            <S_title>I already have an account</S_title>
+        <SignInContainer className='sign-in'>
+            <SignInTitleContainer>I already have an account</SignInTitleContainer>
             <span className='title'>Sign in with your email and password</span>
             <form onSubmit={handleSubmit}>
                 <FormInput
@@ -45,31 +45,28 @@ const SignIn = () => {
                     handleChange={handleChange}
                     label='password'
                     required />
-                <S_buttons className='buttons'>
+                <SignInButtonsContainer className='buttons'>
                     <CustomButton type="submit">Sign in</CustomButton>
                     <CustomButton type="button" onClick={signInWithGoogle} isGoogleSignIn>Sign in with Google</CustomButton>
-                </S_buttons>
+                </SignInButtonsContainer>
             </form>
-        </S_signIN>
+        </SignInContainer>
     )
 };
 
 export default SignIn;
 
-const S_signIN = styled.div`
+const SignInContainer = styled.div`
   width: 380px;
   display: flex;
   flex-direction: column;
 `;
 
-const S_title = styled.h2`;
+const SignInTitleContainer = styled.h2`;
   margin: 10px 0;
 `;
 
-const S_buttons = styled.div`;
+const SignInButtonsContainer = styled.div`;
   display: flex;
   justify-content: space-between;
 `;
-
-
-
