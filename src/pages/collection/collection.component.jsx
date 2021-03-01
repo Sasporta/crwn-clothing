@@ -11,7 +11,7 @@ const CollectionPage = ({ match }) => {
     let itemsValue = [];
     
     if(collections) {
-      const { title, items } = collections[match.params.collectionId]
+      const { title, items } = collections[match.params.collectionId];
       titleValue = title;
       itemsValue = items;
     };

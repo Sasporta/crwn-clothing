@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Header from './components/header/header.component';
 import HomePage from './pages/homepage/homepage.component';
@@ -11,13 +11,13 @@ import { checkUserSession } from "./redux/user/user.actions";
 
 const App = () => {
 
-  const [renderController] = useState(null)
   const { currentUser } = useSelector(state => state.user);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(checkUserSession());
-  },[renderController]);
+    console.log("lll");
+  },[checkUserSession]);
 
   return (
     <>

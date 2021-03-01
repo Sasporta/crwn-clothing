@@ -7,21 +7,19 @@ import styled from "styled-components";
 
 const SignIn = () => {
 
-
-    const [email, set_email] = useState('');
-    const [password, set_password] = useState('');
+    const [userCredentials, setUserCredentials] = useState({ email: '', password: '' });
+    const { email, password } = userCredentials;
     const dispatch = useDispatch();
     
     const handleSubmit = async e => {
         e.preventDefault();
         dispatch(emailSignInStart({ email, password }));
-        set_email('');
-        set_password('');
+        setUserCredentials({ email: '', password: '' });
     };
 
     const handleChange = e => {
-        const { value, name } = e.target;
-        name === 'email' ? set_email(value) : set_password(value);
+        const { name, value } = e.target;
+        setUserCredentials({ ...userCredentials, [name]: value })
     };
 
     return (

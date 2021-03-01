@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import CollectionsOverview from '../../components/collections-overview/collections-overview.component';
 import CollectionPage from '../collection/collection.component';
@@ -13,11 +13,10 @@ const ShopPage = ({ match }) => {
 
     const { isFetching } = useSelector(state => state.shop);
     const dispatch = useDispatch();
-    const [renderController] = useState(null);
 
     useEffect(() => {
         dispatch(fetchCollectionsStart());
-    }, [renderController]);
+    }, [fetchCollectionsStart]);
 
     return (
         <div className='shop-page'>
