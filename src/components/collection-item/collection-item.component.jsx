@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import CustomButton from '../custom-button/custom-button.component';
 import { useDispatch } from 'react-redux';
-import { addItem } from '../../redux/cart/cart.action';
+import { addItem } from '../../redux/cart/cart.actions';
 
 const CollectionItem = ({ item }) => {
 

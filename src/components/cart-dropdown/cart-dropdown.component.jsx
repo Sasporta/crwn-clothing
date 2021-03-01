@@ -4,7 +4,7 @@ import CustomButton from '../custom-button/custom-button.component';
 import CartItem from '../cart-item/cart-item.component';
 import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { toggleCartHidden } from '../../redux/cart/cart.action';
+import { toggleCartHidden } from '../../redux/cart/cart.actions';
 import { useDispatch } from 'react-redux';
 
 

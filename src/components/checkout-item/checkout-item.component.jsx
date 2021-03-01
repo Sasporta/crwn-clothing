@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { removeItem, addItem, clearItem } from '../../redux/cart/cart.action';
+import { removeItem, addItem, clearItem } from '../../redux/cart/cart.actions';
 import { useDispatch } from 'react-redux';
 
 const CheckoutItem = ({ cartItem }) => {

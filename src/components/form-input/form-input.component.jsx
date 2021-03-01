@@ -35,7 +35,7 @@ const DirectoryMenuContainer = styled.div`
 const FormInputContainer = styled.input`
   background: none;
   background-color: white;
-  color: ${subColor};
+  color: ${mainColor};
   font-size: 18px;
   padding 10px 10px 10px 5px;
   display: block;
