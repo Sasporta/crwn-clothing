@@ -47,3 +47,5 @@ const CollectionItemsContainer = styled.div`
     margin-bottom: 30px;
   }
 `;
+
+

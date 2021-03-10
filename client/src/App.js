@@ -16,7 +16,6 @@ const App = () => {
 
   useEffect(() => {
     dispatch(checkUserSession());
-    console.log("lll");
   },[checkUserSession]);
 
   return (
