@@ -17,7 +17,7 @@ const CollectionPage = ({ match }) => {
     };
 
     return collections ? ( 
-        <CollectionPageContainer className='collection-page'>
+        <CollectionPageContainer>
             <CollectionTitleContainer className='title'>{titleValue}</CollectionTitleContainer>
             <CollectionItemsContainer className='items'>
                 {itemsValue.map(item => <CollectionItem key={item.id} item={item} />)}

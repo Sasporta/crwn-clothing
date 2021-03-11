@@ -9,18 +9,18 @@ const CheckoutItem = ({ cartItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;
 
     return (
-        <CheckoutItemContainer className='checkout-item'>
-            <ImageContainer className='image-container'>
+        <CheckoutItemContainer>
+            <ImageContainer>
                 <Img src={imageUrl} alt='item' />
             </ImageContainer>
-            <TextContainer className='name'>{name}</TextContainer>
-            <QuantityContainer className='quantity'>
-              <Arrow className='arrow' onClick={() => dispatch(removeItem(cartItem))}>&#10094;</Arrow>
-              <ValueContainer className='value'>{quantity}</ValueContainer>
-              <Arrow className='arrow' onClick={() => dispatch(addItem(cartItem))}>&#10095;</Arrow>   
+            <TextContainer>{name}</TextContainer>
+            <QuantityContainer>
+              <Arrow onClick={() => dispatch(removeItem(cartItem))}>&#10094;</Arrow>
+              <ValueContainer>{quantity}</ValueContainer>
+              <Arrow onClick={() => dispatch(addItem(cartItem))}>&#10095;</Arrow>   
               </QuantityContainer>
-            <TextContainer className='price'>{price}</TextContainer>
-            <RemoveButtonContainer className='remove' onClick={() => dispatch(clearItem(cartItem))}>&#10005;</RemoveButtonContainer>
+            <TextContainer>{price}</TextContainer>
+            <RemoveButtonContainer onClick={() => dispatch(clearItem(cartItem))}>&#10005;</RemoveButtonContainer>
         </CheckoutItemContainer>
     );
 };

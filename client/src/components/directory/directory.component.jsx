@@ -8,7 +8,7 @@ const Directory = () => {
     const { sections } = useSelector(state => state.directory);
 
     return (
-        <DirectoryMenuContainer className='directory-menu'>
+        <DirectoryMenuContainer>
             {sections.map(({id, ...otherSectionProps }) => 
             <MenuItem key={id} {...otherSectionProps} />)}
         </DirectoryMenuContainer>

@@ -6,9 +6,9 @@ import CollectionItem from '../../components/collection-item/collection-item.com
 const CollectionPreview = ({ title, items, history, match, routeName }) => {
 
     return (
-        <CollectionPreviewContainer className='collection-preview'>
-            <TitleContainer className='title' onClick={() => history.push(`${match.path}/${routeName}`)}>{title}</TitleContainer>
-            <PreviewContainer className='preview'>
+        <CollectionPreviewContainer>
+            <TitleContainer onClick={() => history.push(`${match.path}/${routeName}`)}>{title}</TitleContainer>
+            <PreviewContainer>
                 {items.filter((v, i) => i < 4).map(item => <CollectionItem key={item.id} item={item} />)}
             </PreviewContainer>
         </CollectionPreviewContainer>

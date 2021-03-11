@@ -4,17 +4,17 @@ import styled from 'styled-components';
 const CartItem = ({ item: { imageUrl, name, price, quantity } }) => {
 
     return (
-        <CartItemContainer className='cart-item'>
+        <CartItemContainer>
             <CartItemImageContainer src={imageUrl} alt='item' />
-            <ItemDetailsContainer className='item-details'>
-                <span className='name'>{name}</span>
-                <span className='price'> {quantity} x ${price}</span>
+            <ItemDetailsContainer>
+                <span>{name}</span>
+                <span>{quantity} x ${price}</span>
             </ItemDetailsContainer>
         </CartItemContainer>
     )
 };
 
-export default CartItem;
+export default React.memo(CartItem);
 
 const CartItemContainer = styled.div`
   width: 100%;

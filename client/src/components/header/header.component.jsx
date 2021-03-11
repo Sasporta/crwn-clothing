@@ -14,16 +14,16 @@ const Header = () => {
   const dispatch = useDispatch();
 
   return (
-    <HeaderContainer className='header'>
-      <LogoContainer className='logo-container' to='/'>
-        <Logo className='logo' />
+    <HeaderContainer>
+      <LogoContainer to='/'>
+        <Logo />
       </LogoContainer>
-      <OptionsContainer className='options'>
-        <OptionLink className='option' to='/shop'>SHOP</OptionLink>
-        <OptionLink className='option' to='/shop'>CONTACT</OptionLink> 
+      <OptionsContainer>
+        <OptionLink to='/shop'>SHOP</OptionLink>
+        <OptionLink to='/contact'>CONTACT</OptionLink> 
         {currentUser ?
-          <OptionLink as='div' className='option' onClick={() => dispatch(signOutStart())}>SIGN OUT</OptionLink> :
-          <OptionLink className='option' to='/signin'>SIGN IN</OptionLink>
+          <OptionLink as='div' onClick={() => dispatch(signOutStart())}>SIGN OUT</OptionLink> :
+          <OptionLink to='/signin'>SIGN IN</OptionLink>
         }
         <CartIcon />
       </OptionsContainer>

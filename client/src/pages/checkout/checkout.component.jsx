@@ -11,29 +11,29 @@ const CheckoutPage = () => {
     const total = cartItems.reduce((accumalatedQuantity, cartItem) => accumalatedQuantity + cartItem.quantity * cartItem.price, 0);
 
     return (
-        <CheckoutPageContainer className='checkout-page'>
-            <CheckoutHeaderContainer className='checkout-header'>
-                <HeaderBlockContainer className='header-block'>
+        <CheckoutPageContainer>
+            <CheckoutHeaderContainer>
+                <HeaderBlockContainer>
                     <span>Product</span>
                 </HeaderBlockContainer>
-                <HeaderBlockContainer className='header-block'>
+                <HeaderBlockContainer>
                     <span>Description</span>
                 </HeaderBlockContainer>
-                <HeaderBlockContainer className='header-block'>
+                <HeaderBlockContainer>
                     <span>Quantity</span>
                 </HeaderBlockContainer>
-                <HeaderBlockContainer className='header-block'>
+                <HeaderBlockContainer>
                     <span>Price</span>
                 </HeaderBlockContainer>
-                <HeaderBlockContainer className='header-block'>
+                <HeaderBlockContainer>
                     <span>Remove</span>
                 </HeaderBlockContainer>
             </CheckoutHeaderContainer>
             { cartItems.map(cartItem => <CheckoutItem key={cartItem.id} cartItem={cartItem} />)}
-            <Totalcontainer className='total'>
+            <Totalcontainer>
                 <span>TOTAL: ${total}</span>
             </Totalcontainer>
-            <TestWarningContainer className='test-warning'>
+            <TestWarningContainer>
                 *Please use the following test credit card for payment*
                 <br/>
                 4242 4242 4242 4242 - Exp: 01/22 CVV: 123
@@ -93,8 +93,6 @@ const Totalcontainer = styled.div`
   margin-left: auto;
   font-size: 36px;
 `;
-
-
 
 const TestWarningContainer = styled.div`
   text-align: center;

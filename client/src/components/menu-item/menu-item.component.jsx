@@ -5,11 +5,11 @@ import styled from "styled-components";
 const MenuItem = ({ title, imageUrl, size, linkUrl, history, match }) => {
 
     return (
-        <MenuItemContainer className='menu-item' size={size} onClick={() => history.push(`${match.url}${linkUrl}`)}>
+        <MenuItemContainer size={size} onClick={() => history.push(`${match.url}${linkUrl}`)}>
             <BackgroundImageContainer className='background-image' imageUrl={imageUrl}/>
             <ContentContainer className='content'>
-                <TitleContainer className='title'>{title}</TitleContainer>
-                <SubtitleContainer className='subtitle'>SHOP NOW</SubtitleContainer>
+                <TitleContainer>{title}</TitleContainer>
+                <SubtitleContainer>SHOP NOW</SubtitleContainer>
             </ContentContainer>
         </MenuItemContainer>
     );

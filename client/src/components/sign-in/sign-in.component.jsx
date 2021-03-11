@@ -23,9 +23,9 @@ const SignIn = () => {
     };
 
     return (
-        <SignInContainer className='sign-in'>
+        <SignInContainer>
             <SignInTitleContainer>I already have an account</SignInTitleContainer>
-            <span className='title'>Sign in with your email and password</span>
+            <span>Sign in with your email and password</span>
             <form onSubmit={handleSubmit}>
                 <FormInput
                     name='email'
@@ -41,7 +41,7 @@ const SignIn = () => {
                     handleChange={handleChange}
                     label='password'
                     required />
-                <SignInButtonsContainer className='buttons'>
+                <SignInButtonsContainer>
                     <CustomButton type="submit">Sign in</CustomButton>
                     <CustomButton type="button" onClick={() => dispatch(googleSignInStart())} isGoogleSignIn>Sign in with Google</CustomButton>
                 </SignInButtonsContainer>

@@ -12,9 +12,9 @@ const CollectionItem = ({ item }) => {
   return (
     <CollectionItemContainer className='collection-item'>
       <BackgroundImageContainer className='image' imageUrl={imageUrl} />
-      <CollectionFooterContainer className='collction-footer'>
-        <NameContainer className='name'>{name}</NameContainer>
-        <PriceContainer className='price'>{price}</PriceContainer>
+      <CollectionFooterContainer>
+        <NameContainer>{name}</NameContainer>
+        <PriceContainer>{price}</PriceContainer>
       </CollectionFooterContainer>
       <AddButton onClick={() => dispatch(addItem(item))} inverted>Add to cart</AddButton>
     </CollectionItemContainer>

@@ -4,7 +4,7 @@ import styled from "styled-components";
 const CustomButton = ({ children, ...props }) => {
 
   return (
-    <CustomButtonContainer className='custom-button' {...props}>
+    <CustomButtonContainer {...props}>
       {children}
     </CustomButtonContainer>
   )

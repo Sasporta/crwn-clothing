@@ -4,11 +4,11 @@ import styled, { css } from "styled-components";
 const FormInput = ({ handleChange,label, ...otherProps }) => {
 
     return (
-        <DirectoryMenuContainer className='group'>
-            <FormInputContainer className='from-input' onChange={handleChange} {...otherProps} />
+        <DirectoryMenuContainer>
+            <FormInputContainer onChange={handleChange} {...otherProps} />
             {
                 label ?
-                <FormInputLabelContainer className={`${otherProps.value.length ? 'shrink' : ''} form-input-label`} >
+                <FormInputLabelContainer className={otherProps.value.length ? 'shrink' : ''} >
                     {label}
                 </FormInputLabelContainer> : null
             }

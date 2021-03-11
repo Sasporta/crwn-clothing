@@ -12,9 +12,9 @@ const CartIcon = () => {
   const itemCount = cartItems.reduce((accumalatedQuantity, cartItem) => accumalatedQuantity + cartItem.quantity, 0);
 
     return (
-        <CartIconContainer className='cart-icon' onClick={() => dispatch(toggleCartHidden())}>
-            <ShoppingIconContainer className='shopping-icon' />
-            <ItemCountContainer className='item-count'>{itemCount}</ItemCountContainer>
+        <CartIconContainer onClick={() => dispatch(toggleCartHidden())}>
+            <ShoppingIconContainer />
+            <ItemCountContainer>{itemCount}</ItemCountContainer>
         </CartIconContainer>
     )
 };

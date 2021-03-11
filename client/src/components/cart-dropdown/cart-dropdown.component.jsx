@@ -14,11 +14,11 @@ const CartDropdown = ({ history }) => {
   const dispatch = useDispatch();
   
   return (
-    <CartDropdownContainer className='cart-dropdown'>
-      <CartItemContainer className='cart-items' >
+    <CartDropdownContainer>
+      <CartItemContainer>
         {cartItems.length
           ? cartItems.map(cartItem => <CartItem key={cartItem.id} item={cartItem} />)
-          : <EmptyMessageContainer className='empty-message'>Your cart is empty</EmptyMessageContainer>
+          : <EmptyMessageContainer>Your cart is empty</EmptyMessageContainer>
         }
       </CartItemContainer>
       <CustomButtonContainer onClick={() => {

@@ -3,9 +3,8 @@ import styled from "styled-components";
 import Directory from '../../components/directory/directory.component'
 
 const HomePage = () => {
-
   return (
-    <HomePageContainer className='homepage'>
+    <HomePageContainer>
       <Directory />
     </HomePageContainer>
   )

@@ -10,7 +10,7 @@ const CollectionsOverview = () => {
     collections ? Object.keys(collections).map(key => collections[key]) : [];
 
     return (
-        <CollectionsOverviewContainer className='collections-overview'>
+        <CollectionsOverviewContainer>
             {selectCollectionsForPreview().map(({ id, ...otherCollectionProps }) =>
                 <CollectionPreview key={id} {...otherCollectionProps} />
             )}
