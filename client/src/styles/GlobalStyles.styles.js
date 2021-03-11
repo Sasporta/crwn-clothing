@@ -1,10 +1,14 @@
 import { createGlobalStyle } from "styled-components";
 
-const CreateGlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Open Sans Condensed';
     padding: 20px 40px;
     cursor: default;
+
+    @media screen and (max-width: 800px) {
+      padding: 10px;
+    }
   }
 
   a {
@@ -17,4 +21,4 @@ const CreateGlobalStyle = createGlobalStyle`
   }
 `;
 
-export default CreateGlobalStyle;
+export default GlobalStyle;

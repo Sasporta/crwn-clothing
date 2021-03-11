@@ -30,6 +30,10 @@ const shrinkLabelStyles = css`
 const DirectoryMenuContainer = styled.div`
   position: relative;
   margin: 45px 0;
+
+  input[type='password'] {
+    letter-spacing: 0.3em;
+  }
 `;
 
 const FormInputContainer = styled.input`
@@ -44,7 +48,6 @@ const FormInputContainer = styled.input`
   border-radius: 0;
   border-bottom: 1px solid ${subColor};
   margin: 25px 0;
-  ${({type}) => type === 'password' ? 'letter-spacing: 0.3em;' : ''}
 
   &:focus {
     outline: none;

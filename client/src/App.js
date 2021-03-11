@@ -7,7 +7,7 @@ import CheckoutPage from './pages/checkout/checkout.component';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import { useSelector, useDispatch } from 'react-redux';
 import { checkUserSession } from "./redux/user/user.actions";
-
+import GlobalStyle from './styles/GlobalStyles.styles';
 
 const App = () => {
 
@@ -16,10 +16,11 @@ const App = () => {
 
   useEffect(() => {
     dispatch(checkUserSession());
-  },[dispatch]);
+  }, [dispatch]);
 
   return (
     <>
+      <GlobalStyle />
       <Header />
       <Switch>
         <Route exact path='/' component={HomePage} />
