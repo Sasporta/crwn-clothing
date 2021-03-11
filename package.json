@@ -2,6 +2,10 @@
   "name": "crwn-clothing",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "15.2.1",
+    "npm": "7.6.0"
+  },
   "scripts": {
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "client": "cd client && npm start",
