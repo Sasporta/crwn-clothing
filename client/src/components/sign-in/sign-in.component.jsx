@@ -56,6 +56,10 @@ const SignInContainer = styled.div`
   width: 380px;
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: 800px) {
+    width: unset;
+  }
 `;
 
 const SignInTitleContainer = styled.h2`;
