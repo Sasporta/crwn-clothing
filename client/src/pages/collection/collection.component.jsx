@@ -6,24 +6,16 @@ import styled from 'styled-components';
 const CollectionPage = ({ match }) => {
 
     const { collections } = useSelector(state => state.shop);
+    const { title, items } = collections[match.params.collectionId] || { title: '', items: [] };
 
-    let titleValue = '';
-    let itemsValue = [];
-    
-    if(collections) {
-      const { title, items } = collections[match.params.collectionId];
-      titleValue = title;
-      itemsValue = items;
-    };
-
-    return collections ? ( 
-        <CollectionPageContainer>
-            <CollectionTitleContainer className='title'>{titleValue}</CollectionTitleContainer>
-            <CollectionItemsContainer className='items'>
-                {itemsValue.map(item => <CollectionItem key={item.id} item={item} />)}
-            </CollectionItemsContainer>
-        </CollectionPageContainer> 
-    ) : null;
+    return ( 
+      <CollectionPageContainer>
+        <CollectionTitleContainer className='title'>{title}</CollectionTitleContainer>
+        <CollectionItemsContainer className='items'>
+          {items.map(item => <CollectionItem key={item.id} item={item} />)}
+        </CollectionItemsContainer>
+      </CollectionPageContainer> 
+    );
 };
 
 export default CollectionPage;
